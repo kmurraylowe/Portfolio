@@ -27,6 +27,7 @@ section, summary, time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
+
 	display: block;}
 
 body {
@@ -84,7 +85,7 @@ input, select, textarea {
 
 	body {
 		background-color: #183026;
-		background-image: url("images/overlay.png"), url("../../images/overflowbg.jpg");
+		background-image: url("images/overlay.png"), url("../../images/sunset.jpeg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, cover;
 		background-position: top left, center 0;
@@ -1467,6 +1468,10 @@ input, select, textarea {
 
 	section, article {
 		margin-bottom: 3em;
+
+	}
+	article, #banner {
+		opacity: 0.9;
 	}
 
 	section > :last-child,
@@ -1502,6 +1507,10 @@ input, select, textarea {
 			display: block;
 			width: 100%;
 			height: auto;
+
+
+			
+
 		}
 
 		.image.left {
@@ -1518,6 +1527,8 @@ input, select, textarea {
 				margin: 0 auto;
 				width: auto;
 			}
+
+
 
 /* List */
 
