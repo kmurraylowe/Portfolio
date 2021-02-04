@@ -136,7 +136,7 @@ const weather = {
 		.then(data=>{
 			let currentTime = data.formatted.slice(10).substr(1,2)
 			console.log(currentTime)
-			if(currentTime>6&&currentTime<19){
+			if(currentTime>6&&currentTime<14){
 				document.body.style.backgroundImage = "url('images/oceansand.jpg')"
 				document.querySelector('.day').style.color = "rgb(105,105,105)"
 				document.querySelector('p').style.color = "rgb(105,105,105)"
