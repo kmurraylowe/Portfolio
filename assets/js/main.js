@@ -4,6 +4,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
 (function($) {
 
 	var	$window = $(window),
@@ -89,17 +90,69 @@
 
 		}
 
-	// Poptrox.
-		$('.gallery').poptrox({
-			useBodyOverflow: false,
-			usePopupEasyClose: false,
-			overlayColor: '#0a1919',
-			overlayOpacity: 0.75,
-			usePopupDefaultStyling: false,
-			usePopupCaption: true,
-			popupLoaderText: '',
-			windowMargin: 10,
-			usePopupNav: true
-		});
+	// // Poptrox.
+	// 	$('.gallery').poptrox({
+	// 		useBodyOverflow: false,
+	// 		usePopupEasyClose: false,
+	// 		overlayColor: '#0a1919',
+	// 		overlayOpacity: 0.75,
+	// 		usePopupDefaultStyling: false,
+	// 		usePopupCaption: true,
+	// 		popupLoaderText: '',
+	// 		windowMargin: 10,
+	// 		usePopupNav: true
+	// 	});
 
 })(jQuery);
+
+
+
+
+
+
+
+// weather/local time api
+const weather = {
+	
+	weatherapiKey: "c9eb346b814af2d646c89bc9c8eef6b6",
+	APIKEY: "K5WRWVW5QSPG",
+	fetchWeather: function(city){
+		fetch("https://api.openweathermap.org/data/2.5/weather?q="
+			+city			
+			+"&units=metric&appid="
+			+this.weatherapiKey
+		)
+		.then(res=> res.json())
+		.then(data=>{
+		console.log(data)
+		let latcord = data.coord.lat
+		let lngcord = data.coord.lon
+		
+
+		fetch("https://api.timezonedb.com/v2.1/get-time-zone?key=K5WRWVW5QSPG&format=json&by=position"
+			+"&lat="+latcord
+			+"&lng="+lngcord)
+		.then(res=> res.json())
+		.then(data=>{
+			let currentTime = data.formatted.slice(10).substr(1,2)
+			console.log(currentTime)
+			if(currentTime>6&&currentTime<19){
+				document.body.style.backgroundImage = "url('images/oceansand.jpg')"
+				document.querySelector('.day').style.color = "rgb(105,105,105)"
+				document.querySelector('p').style.color = "rgb(105,105,105)"
+				document.querySelector('.image').src= "images/goldenlabsicon2.png"
+				document.querySelector('#footer').style.color = "rgb(105,105,105)"
+				document.querySelector('.icons').style.background = "rgba(105,105,105, 0.5)"
+			}
+		})
+
+	})
+	  },
+
+}
+weather.fetchWeather("sydney")
+
+
+
+
+
