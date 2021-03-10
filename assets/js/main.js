@@ -150,7 +150,7 @@ const weather = {
 	  },
 
 }
-weather.fetchWeather("sydney")
+// weather.fetchWeather("sydney")
 
 
 
