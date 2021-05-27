@@ -2660,3 +2660,8 @@ input, select, textarea {
 			}
 
 	}
+
+	.glIcon {
+		width: 150px;
+		height: 100px;
+	}
